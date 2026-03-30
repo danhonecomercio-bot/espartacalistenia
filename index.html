@@ -1,0 +1,1308 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oferta Exclusiva - Coach Personal</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #cd3d3d;
+      --primary-light: rgba(205, 61, 61, 0.12);
+      --primary-mid: rgba(205, 61, 61, 0.5);
+      --accent: #3C8786;
+      --accent-light: rgba(60, 135, 134, 0.12);
+      --bg-dark: #111111;
+      --bg-card: #1a1a1a;
+      --bg-section: #0a0a0a;
+      --text-primary: #f5f5f5;
+      --text-secondary: rgba(245, 245, 245, 0.72);
+      --text-tertiary: rgba(245, 245, 245, 0.56);
+      --border-color: rgba(245, 245, 245, 0.08);
+      --positive: #3aae92;
+      --positive-light: rgba(58, 174, 146, 0.12);
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-primary);
+      -webkit-font-smoothing: antialiased;
+      padding-bottom: 80px;
+    }
+
+    /* ===== HEADER ===== */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg-dark);
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .header-steps {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex: 1;
+      justify-content: center;
+    }
+
+    .step {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      color: var(--text-tertiary);
+    }
+
+    .step-number {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 600;
+      border: 1.5px solid var(--text-tertiary);
+      color: var(--text-tertiary);
+    }
+
+    .step.completed .step-number {
+      background: var(--positive);
+      border-color: var(--positive);
+      color: white;
+    }
+
+    .step.active .step-number {
+      border-color: var(--text-primary);
+      color: var(--text-primary);
+    }
+
+    .step.active {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    .step-line {
+      width: 32px;
+      height: 1.5px;
+      background: var(--text-tertiary);
+    }
+
+    .skip-btn {
+      background: none;
+      border: 1px solid var(--text-tertiary);
+      color: var(--text-primary);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 20px;
+      cursor: pointer;
+      letter-spacing: 0.5px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      padding: 32px 20px 24px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 26px;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .hero-subtitle {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      margin-bottom: 28px;
+    }
+
+    .hero-subtitle strong {
+      color: var(--text-primary);
+    }
+
+    /* ===== BENEFITS LIST ===== */
+    .benefits-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-bottom: 24px;
+      text-align: left;
+      padding: 0 4px;
+    }
+
+    .benefit-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .benefit-item:last-child {
+      border-bottom: none;
+    }
+
+    .benefit-icon {
+      width: 36px;
+      height: 36px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+
+    .benefit-text {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.4;
+    }
+
+    /* ===== WHATSAPP HIGHLIGHT ===== */
+    .whatsapp-highlight {
+      background: var(--positive-light);
+      border-radius: 12px;
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+
+    .whatsapp-icon {
+      width: 40px;
+      height: 40px;
+      background: #25D366;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .whatsapp-icon svg {
+      width: 24px;
+      height: 24px;
+      fill: white;
+    }
+
+    .whatsapp-info {
+      text-align: left;
+    }
+
+    .whatsapp-label {
+      font-size: 11px;
+      color: var(--positive);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 2px;
+    }
+
+    .whatsapp-text {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    /* ===== COACH IMAGE ===== */
+    .coach-showcase {
+      position: relative;
+      margin-bottom: 28px;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .coach-showcase img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 16px;
+    }
+
+    .coach-name-badge {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,0.85));
+      padding: 40px 16px 16px;
+      text-align: center;
+    }
+
+    .coach-name-badge h3 {
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .coach-name-badge p {
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+
+    /* ===== PRICING SECTION ===== */
+    .pricing-section {
+      padding: 0 20px 20px;
+    }
+
+    .pricing-title {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .pricing-title span {
+      color: var(--primary);
+    }
+
+    .plan-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .plan-card {
+      background: var(--bg-card);
+      border: 2px solid var(--border-color);
+      border-radius: 14px;
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      transition: all 0.2s;
+      position: relative;
+    }
+
+    .plan-card.popular {
+      border-color: var(--primary);
+    }
+
+    .plan-card.popular::after {
+      content: 'MÁS POPULAR';
+      position: absolute;
+      top: -10px;
+      right: 16px;
+      background: var(--primary);
+      color: white;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 10px;
+      border-radius: 10px;
+      letter-spacing: 0.5px;
+    }
+
+    .plan-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .plan-radio {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: 2px solid var(--text-tertiary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .plan-card.popular .plan-radio {
+      border-color: var(--primary);
+    }
+
+    .plan-card.popular .plan-radio::after {
+      content: '';
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--primary);
+    }
+
+    .plan-name {
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .plan-daily {
+      font-size: 12px;
+      color: var(--text-tertiary);
+      margin-top: 2px;
+    }
+
+    .plan-right {
+      text-align: right;
+    }
+
+    .plan-price {
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .plan-period {
+      font-size: 11px;
+      color: var(--text-tertiary);
+    }
+
+    /* ===== CTA BUTTON ===== */
+    .cta-button {
+      display: block;
+      width: 100%;
+      padding: 16px;
+      background: var(--primary);
+      color: white;
+      font-size: 16px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      animation: pulse-btn 2s infinite;
+    }
+
+    @keyframes pulse-btn {
+      0% { box-shadow: 0 0 0 0 var(--primary-mid); }
+      70% { box-shadow: 0 0 0 12px transparent; }
+      100% { box-shadow: 0 0 0 0 transparent; }
+    }
+
+    .cta-button:active {
+      transform: scale(0.98);
+    }
+
+    /* ===== DISCLAIMER ===== */
+    .disclaimer-box {
+      margin: 20px 20px 0;
+      padding: 14px 16px;
+      background: rgba(245, 245, 245, 0.04);
+      border-radius: 10px;
+      font-size: 11px;
+      color: var(--text-tertiary);
+      line-height: 1.6;
+    }
+
+    .disclaimer-box strong {
+      color: var(--text-secondary);
+    }
+
+    .footnote {
+      padding: 12px 20px 0;
+      font-size: 11px;
+      color: var(--text-tertiary);
+    }
+
+    /* ===== DIVIDER ===== */
+    .section-divider {
+      height: 8px;
+      background: var(--bg-section);
+      margin: 36px 0;
+    }
+
+    /* ===== WHY COACH ===== */
+    .why-coach {
+      padding: 0 20px 36px;
+    }
+
+    .section-title {
+      font-size: 24px;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 24px;
+      line-height: 1.2;
+    }
+
+    .why-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .why-card {
+      background: var(--bg-card);
+      border-radius: 16px;
+      padding: 24px 20px;
+      overflow: hidden;
+    }
+
+    .why-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .why-card p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    .why-card p strong {
+      color: var(--text-primary);
+    }
+
+    .why-card-image {
+      margin-top: 20px;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #222;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 180px;
+    }
+
+    .why-card-image img {
+      width: 100%;
+      height: auto;
+    }
+
+    .chat-mockup {
+      background: #1c1c1e;
+      border-radius: 16px;
+      padding: 16px;
+      margin-top: 16px;
+    }
+
+    .chat-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .chat-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--positive);
+    }
+
+    .chat-name {
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .chat-role {
+      font-size: 11px;
+      color: var(--text-tertiary);
+    }
+
+    .chat-bubble {
+      background: #2c2c2e;
+      border-radius: 16px 16px 16px 4px;
+      padding: 12px 14px;
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.4;
+      max-width: 85%;
+    }
+
+    .chat-bubble-whatsapp {
+      background: #005c4b;
+      border-radius: 16px 16px 4px 16px;
+      padding: 12px 14px;
+      font-size: 13px;
+      color: #e9f5e8;
+      line-height: 1.4;
+      max-width: 85%;
+      margin-left: auto;
+      margin-top: 10px;
+    }
+
+    /* ===== HOW IT WORKS ===== */
+    .how-it-works {
+      padding: 0 20px 36px;
+    }
+
+    .steps-list {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin-top: 24px;
+    }
+
+    .step-item {
+      display: flex;
+      gap: 16px;
+    }
+
+    .step-indicator {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .step-dot {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .step-connector {
+      width: 2px;
+      flex: 1;
+      background: var(--border-color);
+      margin-top: 8px;
+    }
+
+    .step-content h4 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .step-label {
+      font-size: 11px;
+      color: var(--primary);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+    }
+
+    .step-content p {
+      font-size: 13px;
+      color: var(--text-tertiary);
+      line-height: 1.4;
+    }
+
+    /* ===== WHATSAPP FEATURE CARD ===== */
+    .feature-card {
+      margin: 0 20px 36px;
+      background: var(--primary);
+      border-radius: 20px;
+      padding: 28px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-card h2 {
+      font-size: 22px;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      color: white;
+    }
+
+    .feature-card h2 span {
+      background: white;
+      color: var(--primary);
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-size: 20px;
+    }
+
+    .feature-icons {
+      display: flex;
+      gap: 24px;
+      margin-bottom: 20px;
+    }
+
+    .feature-icon-item {
+      text-align: center;
+    }
+
+    .feature-icon-circle {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 6px;
+      font-size: 20px;
+    }
+
+    .feature-icon-label {
+      font-size: 11px;
+      color: rgba(255,255,255,0.85);
+    }
+
+    .feature-card > p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.9);
+      line-height: 1.5;
+      border-top: 1px solid rgba(255,255,255,0.2);
+      padding-top: 16px;
+    }
+
+    .feature-card > p strong {
+      color: white;
+    }
+
+    /* ===== RESULTS ===== */
+    .results-section {
+      padding: 0 20px 36px;
+    }
+
+    .results-grid {
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      padding-bottom: 12px;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .results-grid::-webkit-scrollbar {
+      display: none;
+    }
+
+    .result-card {
+      min-width: 260px;
+      flex-shrink: 0;
+      border-radius: 14px;
+      overflow: hidden;
+      position: relative;
+      scroll-snap-align: start;
+    }
+
+    .result-card img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+    }
+
+    .result-label {
+      position: absolute;
+      bottom: 12px;
+      left: 12px;
+      right: 12px;
+      background: rgba(0,0,0,0.75);
+      border-radius: 10px;
+      padding: 8px 12px;
+      font-size: 13px;
+      text-align: center;
+    }
+
+    .result-label span {
+      color: var(--positive);
+      font-weight: 700;
+    }
+
+    .results-disclaimer {
+      margin-top: 16px;
+      font-size: 11px;
+      color: var(--text-tertiary);
+      line-height: 1.5;
+    }
+
+    /* ===== REVIEWS ===== */
+    .reviews-section {
+      padding: 0 20px 36px;
+    }
+
+    .reviews-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .review-card {
+      background: var(--bg-card);
+      border-radius: 14px;
+      padding: 20px;
+    }
+
+    .review-name {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .review-stars {
+      color: #f5a623;
+      font-size: 14px;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+
+    .review-text {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    /* ===== BOTTOM SALES ===== */
+    .bottom-sales {
+      padding: 36px 20px;
+    }
+
+    /* ===== GUARANTEE ===== */
+    .guarantee {
+      padding: 36px 20px;
+      text-align: center;
+      background: var(--bg-section);
+    }
+
+    .guarantee-icon {
+      font-size: 40px;
+      margin-bottom: 16px;
+    }
+
+    .guarantee h2 {
+      font-size: 22px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .guarantee p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+
+    .guarantee p strong {
+      color: var(--text-primary);
+    }
+
+    .guarantee a {
+      color: var(--accent);
+      text-decoration: underline;
+      font-size: 13px;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      padding: 24px 20px;
+      text-align: center;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .footer-address {
+      font-size: 11px;
+      color: var(--text-tertiary);
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .footer-links a {
+      font-size: 12px;
+      color: var(--text-secondary);
+      text-decoration: underline;
+    }
+
+    /* ===== STICKY BOTTOM CTA ===== */
+    .sticky-cta {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 99;
+      padding: 12px 20px;
+      background: linear-gradient(transparent, var(--bg-dark) 30%);
+      padding-top: 24px;
+    }
+
+    .sticky-cta .cta-button {
+      box-shadow: 0 -4px 20px rgba(205, 61, 61, 0.3);
+    }
+
+    /* ===== DESKTOP (optional, but keeping mobile-first) ===== */
+    @media (min-width: 768px) {
+      .hero h1 { font-size: 36px; }
+      .main-content { max-width: 480px; margin: 0 auto; }
+      .sticky-cta { max-width: 480px; left: 50%; transform: translateX(-50%); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div style="width: 60px;"></div>
+    <div class="header-steps">
+      <div class="step completed">
+        <div class="step-number">&#10003;</div>
+        <span>Crear cuenta</span>
+      </div>
+      <div class="step-line"></div>
+      <div class="step active">
+        <div class="step-number">2</div>
+        <span>Agregar oferta</span>
+      </div>
+      <div class="step-line"></div>
+      <div class="step">
+        <div class="step-number">3</div>
+        <span>Comenzar</span>
+      </div>
+    </div>
+    <button class="skip-btn" id="skipBtn">SALTAR ›</button>
+  </header>
+
+  <div class="main-content">
+
+    <!-- HERO -->
+    <section class="hero">
+      <h1>Agrega el Coaching Personal a tu Plan de Calistenia</h1>
+      <p class="hero-subtitle">
+        Los miembros que reciben <strong>apoyo de coaches certificados logran 2x más resultados*</strong>
+      </p>
+
+      <!-- BENEFITS -->
+      <div class="benefits-list">
+        <div class="benefit-item">
+          <div class="benefit-icon">💬</div>
+          <div class="benefit-text">Soporte de tu coach personal cuando lo necesites</div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">🏋️</div>
+          <div class="benefit-text">Asesoría experta en ejercicio y nutrición</div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">📋</div>
+          <div class="benefit-text">Plan personalizado según tus objetivos</div>
+        </div>
+      </div>
+
+      <!-- WHATSAPP HIGHLIGHT -->
+      <div class="whatsapp-highlight">
+        <div class="whatsapp-icon">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </div>
+        <div class="whatsapp-info">
+          <div class="whatsapp-label">Incluido en tu plan</div>
+          <div class="whatsapp-text">Acompañamiento 100% vía WhatsApp</div>
+        </div>
+      </div>
+
+      <!-- COACH SHOWCASE -->
+      <div class="coach-showcase">
+        <img src="../Coach.jpg" alt="Santiago Valente - Coach Personal">
+        <div class="coach-name-badge">
+          <h3>Santiago Valente</h3>
+          <p>Tu coach personal de calistenia</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section class="pricing-section">
+      <h2 class="pricing-title">¡Elige tu plan con <span>descuento especial</span>!</h2>
+
+      <div class="plan-cards">
+        <div class="plan-card" onclick="selectPlan(this)">
+          <div class="plan-left">
+            <div class="plan-radio"></div>
+            <div>
+              <div class="plan-name">1 Semana</div>
+              <div class="plan-daily">$1.13/día</div>
+            </div>
+          </div>
+          <div class="plan-right">
+            <div class="plan-price">$7.90</div>
+            <div class="plan-period">pago único</div>
+          </div>
+        </div>
+
+        <div class="plan-card popular" onclick="selectPlan(this)">
+          <div class="plan-left">
+            <div class="plan-radio"></div>
+            <div>
+              <div class="plan-name">4 Semanas</div>
+              <div class="plan-daily">$0.71/día</div>
+            </div>
+          </div>
+          <div class="plan-right">
+            <div class="plan-price">$19.90</div>
+            <div class="plan-period">pago único</div>
+          </div>
+        </div>
+
+        <div class="plan-card" onclick="selectPlan(this)">
+          <div class="plan-left">
+            <div class="plan-radio"></div>
+            <div>
+              <div class="plan-name">8 Semanas</div>
+              <div class="plan-daily">$0.53/día</div>
+            </div>
+          </div>
+          <div class="plan-right">
+            <div class="plan-price">$29.90</div>
+            <div class="plan-period">pago único</div>
+          </div>
+        </div>
+      </div>
+
+      <a href="#" class="cta-button" id="mainCta">AGREGAR A MI PLAN</a>
+    </section>
+
+    <!-- DISCLAIMER -->
+    <div class="disclaimer-box">
+      Al hacer clic en AGREGAR A MI PLAN, se te cobrará el <strong>monto correspondiente al plan seleccionado como pago único</strong>.
+      No hay cargos recurrentes ni suscripciones. Tu acceso al coach personal estará activo por la duración del plan elegido.
+    </div>
+    <p class="footnote">* Basado en datos de usuarios que registran su progreso</p>
+
+    <!-- DIVIDER -->
+    <div class="section-divider"></div>
+
+    <!-- WHY COACH -->
+    <section class="why-coach">
+      <h2 class="section-title">Por qué deberías probar el coaching personal</h2>
+
+      <div class="why-cards">
+        <!-- Card 1 -->
+        <div class="why-card">
+          <h3>Apoyo y motivación</h3>
+          <p><strong>Tienes 2x más probabilidades de mantenerte en el camino</strong> con un experto que siempre te respalda.</p>
+          <div class="chat-mockup">
+            <div class="chat-header">
+              <img src="../Coach.jpg" alt="Santiago" class="chat-avatar">
+              <div>
+                <div class="chat-name">Santiago Valente</div>
+                <div class="chat-role">Coach personal</div>
+              </div>
+              <div style="margin-left:auto;width:8px;height:8px;background:#25D366;border-radius:50%;"></div>
+            </div>
+            <div class="chat-bubble">¡Solo fallas cuando dejas de intentar! Un tropiezo no borra tu progreso 💪</div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="why-card">
+          <h3>Asesoría cuando la necesites</h3>
+          <p>Cualquier duda o preocupación, <strong>tienes un profesional listo para asistirte vía WhatsApp.</strong></p>
+          <div class="chat-mockup">
+            <div class="chat-header">
+              <img src="../Coach.jpg" alt="Santiago" class="chat-avatar">
+              <div>
+                <div class="chat-name">Santiago Valente</div>
+                <div class="chat-role">Coach personal</div>
+              </div>
+            </div>
+            <div class="chat-bubble">La alimentación consciente te ayuda a disfrutar tus comidas y evitar comer en exceso. Te explico cómo...</div>
+            <div class="chat-bubble-whatsapp">Genial Santiago! Gracias por la info 🙌</div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="why-card">
+          <h3>Entrenamiento según tus necesidades</h3>
+          <p>Tu coach adapta el plan a tu nivel y objetivos, brindándote <strong>asesoría más personalizada.</strong></p>
+          <div class="chat-mockup">
+            <div class="chat-header">
+              <img src="../Coach.jpg" alt="Santiago" class="chat-avatar">
+              <div>
+                <div class="chat-name">Santiago Valente</div>
+                <div class="chat-role">Coach personal</div>
+              </div>
+            </div>
+            <div class="chat-bubble">Vi que hoy fue un día difícil. Vamos a ajustar tu rutina para mañana, ¿te parece? 🔥</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DIVIDER -->
+    <div class="section-divider"></div>
+
+    <!-- HOW IT WORKS -->
+    <section class="how-it-works">
+      <h2 class="section-title">Cómo funciona</h2>
+
+      <div class="steps-list">
+        <div class="step-item">
+          <div class="step-indicator">
+            <div class="step-dot">1</div>
+            <div class="step-connector"></div>
+          </div>
+          <div class="step-content">
+            <div class="step-label">Paso 1</div>
+            <h4>Conéctate con tu coach</h4>
+            <p>Santiago te contactará por WhatsApp para conocer tu situación actual y objetivos.</p>
+          </div>
+        </div>
+
+        <div class="step-item">
+          <div class="step-indicator">
+            <div class="step-dot">2</div>
+            <div class="step-connector"></div>
+          </div>
+          <div class="step-content">
+            <div class="step-label">Paso 2</div>
+            <h4>Crea un plan que funcione para ti</h4>
+            <p>Juntos diseñarán una estrategia de entrenamiento adaptada a tu nivel y disponibilidad.</p>
+          </div>
+        </div>
+
+        <div class="step-item">
+          <div class="step-indicator">
+            <div class="step-dot">3</div>
+            <div class="step-connector"></div>
+          </div>
+          <div class="step-content">
+            <div class="step-label">Paso 3</div>
+            <h4>Recibe feedback y soporte diario</h4>
+            <p>Tu coach te acompañará cada día con consejos, correcciones y motivación vía WhatsApp.</p>
+          </div>
+        </div>
+
+        <div class="step-item">
+          <div class="step-indicator">
+            <div class="step-dot">4</div>
+          </div>
+          <div class="step-content">
+            <div class="step-label">Paso 4</div>
+            <h4>Ajusta y mejora</h4>
+            <p>Monitorea tu progreso y consulta con Santiago cuando necesites hacer cambios.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DIVIDER -->
+    <div class="section-divider"></div>
+
+    <!-- FEATURE CARD (WhatsApp instead of Fitness Band) -->
+    <section class="feature-card">
+      <h2>Obtén mejores resultados con acompañamiento <span>100%</span> vía WhatsApp</h2>
+
+      <div class="feature-icons">
+        <div class="feature-icon-item">
+          <div class="feature-icon-circle">📱</div>
+          <div class="feature-icon-label">Chat directo</div>
+        </div>
+        <div class="feature-icon-item">
+          <div class="feature-icon-circle">🎯</div>
+          <div class="feature-icon-label">Plan a medida</div>
+        </div>
+        <div class="feature-icon-item">
+          <div class="feature-icon-circle">⚡</div>
+          <div class="feature-icon-label">Respuesta rápida</div>
+        </div>
+      </div>
+
+      <p><strong>Santiago revisa tu progreso</strong> y te da retroalimentación personalizada para que alcances tus metas más rápido.</p>
+    </section>
+
+    <!-- DIVIDER -->
+    <div class="section-divider"></div>
+
+    <!-- RESULTS -->
+    <section class="results-section">
+      <h2 class="section-title">Resultados que nos enorgullecen</h2>
+
+      <div class="results-grid">
+        <div class="result-card">
+          <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=400&h=500&fit=crop" alt="Transformación 1">
+          <div class="result-label">Marco, <span>+5 kg músculo</span> en 2 meses**</div>
+        </div>
+        <div class="result-card">
+          <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=400&h=500&fit=crop" alt="Transformación 2">
+          <div class="result-label">Diego, <span>+4 kg músculo</span> en 1 mes**</div>
+        </div>
+        <div class="result-card">
+          <img src="https://images.unsplash.com/photo-1597452485669-2c7bb5fef90d?w=400&h=500&fit=crop" alt="Transformación 3">
+          <div class="result-label">Andrés, <span>+6 kg músculo</span> en 2 meses**</div>
+        </div>
+      </div>
+
+      <p class="results-disclaimer">**Aviso: Seguir planes de ejercicio y alimentación es clave en tu camino fitness e impacta considerablemente los resultados. Los resultados individuales pueden variar.</p>
+    </section>
+
+    <!-- DIVIDER -->
+    <div class="section-divider"></div>
+
+    <!-- REVIEWS -->
+    <section class="reviews-section">
+      <h2 class="section-title">Nuestros clientes aman el plan</h2>
+
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="review-name">Carlos</div>
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">Me uní porque necesitaba ayuda. Había llegado a un punto muerto en mis entrenamientos. Santiago me ayudó a romper esa barrera con un plan totalmente personalizado. ¡Increíble experiencia!</p>
+        </div>
+        <div class="review-card">
+          <div class="review-name">Miguel</div>
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">Los ejercicios son muy claros y fáciles de seguir. Tener a Santiago en WhatsApp para resolver mis dudas al instante hace toda la diferencia. ¡100% recomendado!</p>
+        </div>
+        <div class="review-card">
+          <div class="review-name">Roberto</div>
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">Gracias. Este fue un gran impulso. He vuelto al camino correcto con el ejercicio y la alimentación. El acompañamiento por WhatsApp es genial.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- DIVIDER -->
+    <div class="section-divider"></div>
+
+    <!-- BOTTOM SALES (repeat) -->
+    <section class="bottom-sales">
+      <h2 class="section-title">Alcanza tus metas de calistenia con coaching personal</h2>
+      <p class="hero-subtitle" style="text-align:center;margin-bottom:24px;">
+        Los miembros que reciben <strong>apoyo de coaches certificados logran 2x más resultados*</strong>
+      </p>
+
+      <div class="benefits-list">
+        <div class="benefit-item">
+          <div class="benefit-icon">💬</div>
+          <div class="benefit-text">Soporte de tu coach personal cuando lo necesites</div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">🏋️</div>
+          <div class="benefit-text">Asesoría experta en ejercicio y nutrición</div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">📋</div>
+          <div class="benefit-text">Plan personalizado según tus objetivos</div>
+        </div>
+      </div>
+
+      <div class="whatsapp-highlight">
+        <div class="whatsapp-icon">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </div>
+        <div class="whatsapp-info">
+          <div class="whatsapp-label">Incluido en tu plan</div>
+          <div class="whatsapp-text">Acompañamiento 100% vía WhatsApp</div>
+        </div>
+      </div>
+
+      <!-- Repeat pricing -->
+      <div class="plan-cards">
+        <div class="plan-card" onclick="selectPlan(this)">
+          <div class="plan-left">
+            <div class="plan-radio"></div>
+            <div>
+              <div class="plan-name">1 Semana</div>
+              <div class="plan-daily">$1.13/día</div>
+            </div>
+          </div>
+          <div class="plan-right">
+            <div class="plan-price">$7.90</div>
+            <div class="plan-period">pago único</div>
+          </div>
+        </div>
+
+        <div class="plan-card popular" onclick="selectPlan(this)">
+          <div class="plan-left">
+            <div class="plan-radio"></div>
+            <div>
+              <div class="plan-name">4 Semanas</div>
+              <div class="plan-daily">$0.71/día</div>
+            </div>
+          </div>
+          <div class="plan-right">
+            <div class="plan-price">$19.90</div>
+            <div class="plan-period">pago único</div>
+          </div>
+        </div>
+
+        <div class="plan-card" onclick="selectPlan(this)">
+          <div class="plan-left">
+            <div class="plan-radio"></div>
+            <div>
+              <div class="plan-name">8 Semanas</div>
+              <div class="plan-daily">$0.53/día</div>
+            </div>
+          </div>
+          <div class="plan-right">
+            <div class="plan-price">$29.90</div>
+            <div class="plan-period">pago único</div>
+          </div>
+        </div>
+      </div>
+
+      <a href="#" class="cta-button">AGREGAR A MI PLAN</a>
+
+      <div class="disclaimer-box" style="margin:20px 0 0;">
+        Al hacer clic en AGREGAR A MI PLAN, se te cobrará el <strong>monto correspondiente al plan seleccionado como pago único</strong>.
+        No hay cargos recurrentes ni suscripciones. Tu acceso al coach personal estará activo por la duración del plan elegido.
+      </div>
+      <p class="footnote">* Basado en datos de usuarios que registran su progreso</p>
+    </section>
+
+    <!-- GUARANTEE -->
+    <section class="guarantee">
+      <div class="guarantee-icon">🛡️</div>
+      <h2>Garantía de resultados</h2>
+      <p>Confiamos en la efectividad de nuestro programa de coaching.</p>
+      <p>• Si completas el programa completo y no ves resultados, <strong>te devolvemos todo tu dinero</strong> - sin reembolsos parciales y sin preguntas.</p>
+      <p>• Si realmente quieres alcanzar tus metas, es una <strong>oferta sin riesgo.</strong></p>
+      <a href="#">Conoce más sobre nuestra política de reembolso.</a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <p class="footer-address">Todos los derechos reservados.</p>
+      <div class="footer-links">
+        <a href="#">Privacidad</a>
+        <a href="#">Términos</a>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- STICKY CTA -->
+  <div class="sticky-cta">
+    <a href="#" class="cta-button">AGREGAR A MI PLAN</a>
+  </div>
+
+  <script>
+    function selectPlan(card) {
+      // Remove selection from all cards in same group
+      const parent = card.parentElement;
+      parent.querySelectorAll('.plan-card').forEach(c => {
+        c.classList.remove('popular');
+        c.querySelector('.plan-radio').innerHTML = '';
+      });
+      // Select this card
+      card.classList.add('popular');
+      const radio = card.querySelector('.plan-radio');
+      radio.innerHTML = '';
+      const dot = document.createElement('div');
+      dot.style.cssText = 'width:12px;height:12px;border-radius:50%;background:var(--primary);';
+      radio.appendChild(dot);
+    }
+  </script>
+</body>
+</html>
